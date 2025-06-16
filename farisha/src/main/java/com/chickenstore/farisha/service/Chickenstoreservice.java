@@ -1,7 +1,7 @@
 package com.chickenstore.farisha.service;
 
+import com.chickenstore.farisha.dao.Chickenstorerepo;
 import com.chickenstore.farisha.entity.*;
-import com.chickenstore.farisha.repository.Chickenstorerepo;
 
 import jakarta.transaction.Transactional;
 
