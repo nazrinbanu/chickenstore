@@ -3,7 +3,7 @@ package com.chickenstore.farisha.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+//import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,31 +12,31 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+//import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chickenstore.farisha.entity.Chickenstore;
-import com.chickenstore.farisha.service.Chickenstoreservice;
+import com.chickenstore.farisha.entity.ChickenStore;
+import com.chickenstore.farisha.service.ChickenStoreService;
 
 @RestController
 @RequestMapping("/chicken")
-public class Chickenstorecontroller {
+public class ChickenStoreController {
 	
-	private Chickenstoreservice service;
+	private ChickenStoreService service;
 
 	@Autowired
-	public Chickenstorecontroller(Chickenstoreservice service) {
+	public ChickenStoreController(ChickenStoreService service) {
 		super();
 		this.service = service;
 	}
 	
 	@GetMapping("/item")
-	public List<Chickenstore> getAll(){
+	public List<ChickenStore> getAll(){
 		return service.getAll();
 	}
 	
 	@PostMapping("/item")
-	public void addUserDetails(@RequestBody Chickenstore chicken) {
+	public void addUserDetails(@RequestBody ChickenStore chicken) {
 		service.addUser(chicken);
 	}
 	
