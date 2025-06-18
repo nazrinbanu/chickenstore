@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="chickenstore")
-public class Chickenstore {
+public class ChickenStore {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -44,13 +44,13 @@ public class Chickenstore {
 	public void setRs(int rs) {
 		this.rs = rs;
 	}
-	public Chickenstore( String name, int kg, int rs) {
+	public ChickenStore( String name, int kg, int rs) {
 
 		this.name = name;
 		this.kg = kg;
 		this.rs = rs;
 	}
-	public Chickenstore() {
+	public ChickenStore() {
 		
 		// TODO Auto-generated constructor stub
 	}

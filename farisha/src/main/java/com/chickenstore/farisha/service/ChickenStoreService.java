@@ -1,6 +1,6 @@
 package com.chickenstore.farisha.service;
 
-import com.chickenstore.farisha.dao.Chickenstorerepo;
+import com.chickenstore.farisha.dao.ChickenStoreRepo;
 import com.chickenstore.farisha.entity.*;
 
 import jakarta.transaction.Transactional;
@@ -12,28 +12,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Chickenstoreservice {
+public class ChickenStoreService {
 	
-	private Chickenstorerepo chickenstorerepo;
+	private ChickenStoreRepo chickenstorerepo;
 	
 	@Autowired
-	public Chickenstoreservice(Chickenstorerepo chickenstorerepo) {
+	public ChickenStoreService(ChickenStoreRepo chickenstorerepo) {
 		this.chickenstorerepo=chickenstorerepo;
 		
 	}
 
 	
-	public List<Chickenstore> getAll(){
+	public List<ChickenStore> getAll(){
 		return chickenstorerepo.findAll();
 	}
 	
-	public Optional<Chickenstore> getChickenById(int id) {
+	public Optional<ChickenStore> getChickenById(int id) {
 		return chickenstorerepo.findById(id);
 		
 	}
 	
 	@Transactional
-	public void addUser(Chickenstore chicken) {
+	public void addUser(ChickenStore chicken) {
 		// TODO Auto-generated method stub
 		chickenstorerepo.save(chicken);
 	}
@@ -44,7 +44,7 @@ public class Chickenstoreservice {
 		// TODO Auto-generated method stub
 		Boolean exist=chickenstorerepo.existsById(id);
 		if(exist) {
-			Optional<Chickenstore>chicken=chickenstorerepo.findById(id);
+			Optional<ChickenStore>chicken=chickenstorerepo.findById(id);
 			chicken.get().setKg(kg);
 		}
 	}
