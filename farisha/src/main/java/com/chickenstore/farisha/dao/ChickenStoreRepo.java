@@ -13,6 +13,6 @@ public interface ChickenStoreRepo extends JpaRepository<ChickenStore,Integer>{
 
 	void save(Optional<ChickenStore> chicken);
 
-	
+	ChickenStore findChickenById(int id);
 
 }

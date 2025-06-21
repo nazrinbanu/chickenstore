@@ -2,6 +2,7 @@ package com.chickenstore.farisha.service;
 
 import com.chickenstore.farisha.dao.ChickenStoreRepo;
 import com.chickenstore.farisha.entity.*;
+import com.chickenstore.farisha.exception.ChickenException;
 
 import jakarta.transaction.Transactional;
 
@@ -53,5 +54,16 @@ public class ChickenStoreService {
 	public void removeUserDetails(int id) {
 		// TODO Auto-generated method stub
 		chickenstorerepo.deleteById(id);
+	}
+
+
+	public ChickenStore getUserById(int id) {
+		// TODO Auto-generated method stub
+		ChickenStore chicken=chickenstorerepo.findChickenById(id);
+		if( chicken==null) {
+			throw new ChickenException("User not found : "+id);
+		}
+	return chicken;
+		
 	}
 }

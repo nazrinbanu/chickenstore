@@ -1,6 +1,7 @@
 package com.chickenstore.farisha.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Controller;
@@ -33,6 +34,11 @@ public class ChickenStoreController {
 	@GetMapping("/item")
 	public List<ChickenStore> getAll(){
 		return service.getAll();
+	}
+	
+	@GetMapping("/item/{id}")
+	public ChickenStore getSingleUser(@PathVariable int id){
+		return service.getUserById(id);
 	}
 	
 	@PostMapping("/item")
