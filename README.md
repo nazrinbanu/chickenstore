@@ -79,14 +79,16 @@ Sample error response:
 
 farisha-chicken/
 ├── src/
-│   ├── controller/
-|   ├── dao/
-|   ├── entity/
-│   ├── exception/       # Contains global exception handlers and custom exceptions
-│   ├── security/
-│   ├── service/
-├── application.properties
-└── README.md
+│   ├── controller/            # REST controllers for handling API requests
+│   ├── dao/                   # Repository interfaces for data access (JPA)
+│   ├── entity/                # JPA entity classes representing database tables
+│   ├── exception/             # Global exception handling and custom exceptions
+│   ├── security/              # Security configuration (authentication, roles, filters)
+│   ├── service/               # Business logic and service layer
+│   └── FarishaChickenApplication.java  # Main Spring Boot application class
+├── application.properties     # Spring Boot configuration file
+└── README.md                  # Project documentation
+
 
 🧪 Testing Credentials
 
