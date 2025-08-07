@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chickenstore.farisha_chicken.entity.ChickenStore;
+import com.chickenstore.farisha_chicken.record.ChickenRec;
 import com.chickenstore.farisha_chicken.service.ChickenStoreService;
 
 @RestController
@@ -42,7 +43,7 @@ public class ChickenStoreController {
 	}
 	
 	@PostMapping("/item")
-	public void addUserDetails(@RequestBody ChickenStore chicken) {
+	public void addUserDetails(@RequestBody ChickenRec chicken) {
 		service.addUser(chicken);
 	}
 	

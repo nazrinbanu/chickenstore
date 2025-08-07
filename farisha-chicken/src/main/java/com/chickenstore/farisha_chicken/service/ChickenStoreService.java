@@ -1,8 +1,10 @@
 package com.chickenstore.farisha_chicken.service;
 
 import com.chickenstore.farisha_chicken.dao.ChickenStoreRepo;
+import com.chickenstore.farisha_chicken.dao.CustomerDetailsRepo;
 import com.chickenstore.farisha_chicken.entity.*;
 import com.chickenstore.farisha_chicken.exception.ChickenException;
+import com.chickenstore.farisha_chicken.record.ChickenRec;
 
 import jakarta.transaction.Transactional;
 
@@ -17,13 +19,23 @@ public class ChickenStoreService {
 	
 	private ChickenStoreRepo chickenstorerepo;
 	
+	//private CustomerDetailsRepo customerdetails;
+	
 	@Autowired
 	public ChickenStoreService(ChickenStoreRepo chickenstorerepo) {
 		this.chickenstorerepo=chickenstorerepo;
 		
 	}
 
-	
+//	
+//	@Autowired
+//	public ChickenStoreService(CustomerDetailsRepo customerdetails) {
+//		super();
+//		this.customerdetails = customerdetails;
+//	}
+
+
+
 	public List<ChickenStore> getAll(){
 		return chickenstorerepo.findAll();
 	}
@@ -34,9 +46,19 @@ public class ChickenStoreService {
 	}
 	
 	@Transactional
-	public void addUser(ChickenStore chicken) {
+	public void addUser(ChickenRec chicken) {
 		// TODO Auto-generated method stub
-		chickenstorerepo.save(chicken);
+		CustomerDetails customer=new CustomerDetails
+				(chicken.customerdetails().name(),
+				chicken.customerdetails().email(),
+				chicken.customerdetails().phno(),
+				chicken.customerdetails().address()
+				);
+		ChickenStore chickenstore=new ChickenStore(
+				chicken.name(),
+				chicken.kg(),
+				chicken.rs(),customer);
+		chickenstorerepo.save(chickenstore);
 	}
 
 

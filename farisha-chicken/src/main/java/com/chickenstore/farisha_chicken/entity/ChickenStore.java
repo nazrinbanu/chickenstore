@@ -1,10 +1,13 @@
 package com.chickenstore.farisha_chicken.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +23,11 @@ public class ChickenStore {
 	private int kg;
 	@Column(name="rs")
 	private int rs;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="customer_id")
+	private CustomerDetails customerdetails;
+	
 	public int getId() {
 		return id;
 	}
@@ -44,16 +52,24 @@ public class ChickenStore {
 	public void setRs(int rs) {
 		this.rs = rs;
 	}
-	public ChickenStore( String name, int kg, int rs) {
-
-		this.name = name;
-		this.kg = kg;
-		this.rs = rs;
+	public CustomerDetails getCustomerDetails() {
+		return customerdetails;
+	}
+	public void setCustomerDetails(CustomerDetails customerdetails) {
+		this.customerdetails = customerdetails;
 	}
 	public ChickenStore() {
 		
 		// TODO Auto-generated constructor stub
 	}
+	public ChickenStore( String name, int kg, int rs, CustomerDetails customerdetails) {
+
+		this.name = name;
+		this.kg = kg;
+		this.rs = rs;
+		this.customerdetails=customerdetails;
+	}
+	
 	
 
 }
